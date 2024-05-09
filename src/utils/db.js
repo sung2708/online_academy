@@ -1,18 +1,18 @@
-const db = require('mysql');
+const mysql = require('mysql');
 
-const connection = db.createConnection({
-    host: 'localhost',
+const db = mysql.createConnection({
+    host: '172.26.0.2',
     user: 'root',
-    password: '',
-    database: 'online_academy'
+    password: 'Sung2708@',
+    database: 'online_academy',
+    port: 3307
 });
 
-connection.connect((err) => {
+db.connect((err) => {
     if (err) {
-        console.log(err);
-    } else {
-        console.log('Database connected');
+        throw err;
     }
+    console.log('Connected to database');
 });
 
-module.exports = connection;
+module.exports = db;
