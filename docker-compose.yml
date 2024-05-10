@@ -8,10 +8,12 @@ services:
       - MYSQL_ROOT_PASSWORD=Sung2708@
       - MYSQL_DATABASE=online_academy
     ports:
-      - 3307:3306
+      - 3306:3306
     volumes:
       - db:/var/lib/mysql
   app:
+    volumes:
+    - ./src:/src
     depends_on:
       - mysqldb
     build: ./src
@@ -19,11 +21,10 @@ services:
     ports:
       - 3000:3000
     environment:
-      - DB_HOST=mysqldb
+      - DB_HOST=localhost
       - DB_USER=root
       - DB_PASSWORD=Sung2708@
       - DB_NAME=online_academy
-      - DB_PORT= 3307
     stdin_open: true
     tty: true
 
