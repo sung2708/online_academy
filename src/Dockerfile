@@ -8,5 +8,6 @@ RUN npm install
 
 COPY . .
 
-CMD npm start
+CMD npm cache clean --force && npm start
+
 

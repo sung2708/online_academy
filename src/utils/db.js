@@ -1,11 +1,10 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 const db = mysql.createConnection({
-    host: '172.26.0.2',
+    host: 'localhost',
     user: 'root',
     password: 'Sung2708@',
-    database: 'online_academy',
-    port: 3307
+    database: 'online_academy'
 });
 
 db.connect((err) => {
@@ -14,5 +13,6 @@ db.connect((err) => {
     }
     console.log('Connected to database');
 });
+
 
 module.exports = db;
